@@ -1,6 +1,6 @@
 # Landing Campaña Política
 
-Landing page para el Candidato Cetre.
+Landing page para el Candidato Cetre "El futuro es hoy".
 
 ## Tecnologías
 
