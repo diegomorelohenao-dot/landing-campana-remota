@@ -22,8 +22,8 @@ body {
 h1 {
     font-size: 3rem;
     background: linear-gradient(to right, var(--primary), var(--secondary));
-    -webkit-background-clip: text; /* La que ya tienes */
-    background-clip: text;         /* AGREGA ESTA LÍNEA */
+    -webkit-background-clip: text;
+    background-clip: text;         
     -webkit-text-fill-color: transparent;
     margin-bottom: 0.5rem;
 }
