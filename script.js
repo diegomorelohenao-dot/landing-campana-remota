@@ -1,5 +1,5 @@
 document.getElementById("btn").onclick = function () {
   alert(
-    "¡Gracias por unirte a la campaña del Candidato Cetre🎉, has hecho una gran elección!",
+    "¡Gracias por unirte a la campaña del Candidato CETRE🎉, has hecho una gran elección!",
   );
 };
