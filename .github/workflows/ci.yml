@@ -51,9 +51,20 @@ jobs:
             exit 1
           fi
 
+      - name: Verificar que los archivos no estén vacíos
+        run: |
+          for archivo in index.html css/style.css js/script.js README.md; do
+            if [ ! -s "$archivo" ]; then
+              echo "❌ ERROR: $archivo está vacío"
+              exit 1
+            else
+              echo "✅ $archivo tiene contenido"
+            fi
+          done
+
       - name: Validar contenido mínimo de index.html
         run: |
-          if grep -q "<!DOCTYPE html>" index.html; then
+          if grep -qi "<!DOCTYPE html>" index.html; then
             echo "✅ index.html tiene declaración DOCTYPE válida"
           else
             echo "❌ ERROR: index.html no tiene DOCTYPE válido"
