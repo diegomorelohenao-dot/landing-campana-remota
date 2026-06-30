@@ -1,0 +1,64 @@
+name: CI - Validación Landing Page Política
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  validar-estructura:
+    name: Validar estructura del proyecto
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Clonar repositorio
+        uses: actions/checkout@v4
+
+      - name: Verificar existencia de index.html
+        run: |
+          if [ -f "index.html" ]; then
+            echo "✅ index.html encontrado"
+          else
+            echo "❌ ERROR: No se encontró index.html"
+            exit 1
+          fi
+
+      - name: Verificar existencia de css/style.css
+        run: |
+          if [ -f "css/style.css" ]; then
+            echo "✅ css/style.css encontrado"
+          else
+            echo "❌ ERROR: No se encontró css/style.css"
+            exit 1
+          fi
+
+      - name: Verificar existencia de js/script.js
+        run: |
+          if [ -f "js/script.js" ]; then
+            echo "✅ js/script.js encontrado"
+          else
+            echo "❌ ERROR: No se encontró js/script.js"
+            exit 1
+          fi
+
+      - name: Verificar existencia de README.md
+        run: |
+          if [ -f "README.md" ]; then
+            echo "✅ README.md encontrado"
+          else
+            echo "❌ ERROR: No se encontró README.md"
+            exit 1
+          fi
+
+      - name: Validar contenido mínimo de index.html
+        run: |
+          if grep -q "<!DOCTYPE html>" index.html; then
+            echo "✅ index.html tiene declaración DOCTYPE válida"
+          else
+            echo "❌ ERROR: index.html no tiene DOCTYPE válido"
+            exit 1
+          fi
+
+      - name: Resumen de validación
+        run: echo "🎉 Todas las validaciones de estructura se completaron correctamente"
